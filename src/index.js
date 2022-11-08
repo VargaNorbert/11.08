@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 document.addEventListener('DOMContentLoaded', () => {
-    var _a;
+    var _a, _b;
     let eredmeny;
     function adatBetoltes() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     adatBetoltes();
     function adatMegjelenites(usersLista) {
         let szulo = document.getElementById('list');
+        usersLista = usersLista.sort((a, b) => { return a.lastName > b.lastName ? 1 : -1; });
         for (let e of usersLista) {
             let li = document.createElement('li');
             li.textContent = e.lastName.toUpperCase() + " " + e.firstName;
@@ -33,8 +34,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     ;
+    function adatMegjelenites2(usersLista) {
+        let szulo = document.getElementById('tabla');
+        usersLista = usersLista.sort((a, b) => { return a.username > b.username ? 1 : -1; });
+        for (let e of usersLista) {
+            let tr = document.createElement('tr');
+            let td1 = document.createElement('td');
+            let td2 = document.createElement('td');
+            let td3 = document.createElement('td');
+            td1.textContent = e.username;
+            td2.textContent = e.email;
+            td3.textContent = e.phone;
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            szulo.appendChild(tr);
+        }
+    }
+    ;
     (_a = document.getElementById('feladat1')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', () => {
         adatMegjelenites(eredmeny.users);
+    });
+    (_b = document.getElementById('feladat2')) === null || _b === void 0 ? void 0 : _b.addEventListener('click', () => {
+        adatMegjelenites2(eredmeny.users);
     });
 });
 //# sourceMappingURL=index.js.map
