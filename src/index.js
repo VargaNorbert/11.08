@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 document.addEventListener('DOMContentLoaded', () => {
-    var _a, _b;
+    var _a, _b, _c;
     let eredmeny;
     function adatBetoltes() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -52,11 +52,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     ;
+    function adatMegjelenites3(usersLista, min) {
+        let szulo = document.getElementById('list2');
+        let ossz = 0;
+        for (let e of usersLista) {
+            if (e.height > min) {
+                ossz += e.weight;
+            }
+        }
+        let li = document.createElement('li');
+        li.textContent = ossz.toString();
+        szulo === null || szulo === void 0 ? void 0 : szulo.appendChild(li);
+    }
+    ;
     (_a = document.getElementById('feladat1')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', () => {
         adatMegjelenites(eredmeny.users);
     });
     (_b = document.getElementById('feladat2')) === null || _b === void 0 ? void 0 : _b.addEventListener('click', () => {
         adatMegjelenites2(eredmeny.users);
+    });
+    (_c = document.getElementById('feladat3')) === null || _c === void 0 ? void 0 : _c.addEventListener('click', () => {
+        adatMegjelenites3(eredmeny.users, 180);
     });
 });
 //# sourceMappingURL=index.js.map

@@ -54,12 +54,33 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
     };
 
+    function adatMegjelenites3(usersLista,min : number){
+        let szulo = document.getElementById('list2');
+
+        let ossz : number = 0;
+
+        for(let e of usersLista){
+
+            if(e.height>min){
+                ossz += e.weight;
+            }
+        }
+
+    let li = document.createElement('li');
+    li.textContent = ossz.toString();
+    szulo?.appendChild(li);
+    };
+
     document.getElementById('feladat1')?.addEventListener('click',()=>{
         adatMegjelenites(eredmeny.users);
     })
 
     document.getElementById('feladat2')?.addEventListener('click',()=>{
         adatMegjelenites2(eredmeny.users);
+    })
+
+    document.getElementById('feladat3')?.addEventListener('click',()=>{
+        adatMegjelenites3(eredmeny.users,180);
     })
 
     
